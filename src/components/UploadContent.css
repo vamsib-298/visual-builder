@@ -1,0 +1,39 @@
+/* UploadContent.css */
+
+/* Style for the search bar with rounded corners */
+.search-bar {
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  
+  /* Style for the upload button */
+  .upload-button {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  
+  /* Style for the upload box with dashed border and increased height */
+  .upload-box {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background-color: #353a3c;
+    position: relative;
+    min-height: 150px; /* Increased height for the drag-and-drop box */
+    margin-bottom: 16px;
+  }
+  
+  /* Style for the image preview container */
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Style for the image preview */
+  .image-preview {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+  }
+  

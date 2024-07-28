@@ -1,5 +1,5 @@
-import React, { FC, Fragment, useEffect, useState } from "react";
-import { Box, Typography, TextField, Button } from '@mui/material';
+import React, { FC, useEffect, useState } from "react";
+import { Box, TextField, Button } from '@mui/material';
 import { createApi } from "unsplash-js";
 import "../components/PhotoContent.css"; 
 
@@ -19,25 +19,11 @@ const api = createApi({
   accessKey: "4qpG6Y9_qRcyfR3fYZG1feUSvoGTWimcw9P-biueOyo"
 });
 
-const PhotoComp: React.FC<{ photo: Photo }> = ({ photo }) => {
-  const { user, urls } = photo;
+interface PhotosContentProps {
+  onImageSelect: (url: string) => void;
+}
 
-  return (
-    <Fragment>
-      <img className="img" src={urls.regular} alt={user.name} />
-      <a
-        className="credit"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={`https://unsplash.com/@`}
-      >
-        {user.name}
-      </a>
-    </Fragment>
-  );
-};
-
-const PhotosContent: FC = () => {
+const PhotosContent: FC<PhotosContentProps> = ({ onImageSelect }) => {
   const [data, setPhotosResponse] = useState<any>(null);
   const [query, setQuery] = useState<string>("cat");
 
@@ -94,8 +80,16 @@ const PhotosContent: FC = () => {
         <div className="feed">
           <ul className="columnUl">
             {data.response.results.map((photo: Photo, index: number) => (
-              <li key={photo.id} className="li">
-                <PhotoComp photo={photo} />
+              <li key={photo.id} className="li" onClick={() => onImageSelect(photo.urls.regular)}>
+                <img className="img" src={photo.urls.regular} alt={photo.user.name} />
+                <a
+                  className="credit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://unsplash.com/@${photo.user.username}`}
+                >
+                  {/* {photo.user.name} */}
+                </a>
               </li>
             ))}
           </ul>

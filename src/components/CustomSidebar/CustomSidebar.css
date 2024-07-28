@@ -21,8 +21,8 @@ width: 8px;
 }
 
 .custom-sidebar::-webkit-scrollbar-thumb {
-background-color: #181d20;
-/* border-radius: 4px;  */
+background-color: #000000;
+border-radius: 4px; 
 }
 
 .custom-sidebar::-webkit-scrollbar-thumb:hover {

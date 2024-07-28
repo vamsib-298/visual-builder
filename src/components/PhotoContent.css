@@ -42,6 +42,7 @@
   .img {
     min-width: 263px; /* Adjust to your preferred minimum width */
     max-width: 100%;
+    cursor: pointer;
   }
   
   .credit {

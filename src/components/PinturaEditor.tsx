@@ -1,19 +1,11 @@
-import React, { useState } from "react";
-import ExImage from '../assets/image4.png'
 
-// react-pintura
+import React, { useState, useEffect } from "react";
 import { PinturaEditor } from "@pqina/react-pintura";
-
-// pintura
 import "@pqina/pintura/pintura.css";
-
 import {
-  // editor
   createDefaultImageReader,
   createDefaultImageWriter,
   createDefaultShapePreprocessor,
-
-  // plugins
   setPlugins,
   plugin_crop,
   plugin_finetune,
@@ -23,7 +15,6 @@ import {
   plugin_annotate,
   markup_editor_defaults,
 } from "@pqina/pintura";
-
 import {
   LocaleCore,
   LocaleCrop,
@@ -36,7 +27,7 @@ import {
 setPlugins(plugin_crop, plugin_finetune, plugin_filter, plugin_annotate);
 
 const editorDefaults = {
-  utils: ["crop", "finetune", "filter", "annotate"],
+  utils: ["crop", "finetune", "filter", "annotate","decorate",],
   imageReader: createDefaultImageReader(),
   imageWriter: createDefaultImageWriter(),
   shapePreprocessor: createDefaultShapePreprocessor(),
@@ -53,28 +44,23 @@ const editorDefaults = {
   },
 };
 
-const Example: React.FC = () => {
-  const [result, setResult] = useState<string>("");
+interface ExampleProps {
+  selectedImage: string | null;
+}
+
+const Example: React.FC<ExampleProps> = ({ selectedImage }) => {
+  const [image, setImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setImage(selectedImage || null);
+  }, [selectedImage]);
 
   return (
-    <div>
-      <h2>Editing Ground</h2>
-
-      <div style={{ height: "60vh", width:"60vw" }}>
-        <PinturaEditor
-          {...editorDefaults}
-          src={ExImage}
-          onLoad={(res) => console.log("load image", res)}
-          onProcess={({ dest }) => setResult(URL.createObjectURL(dest))}
-        />
-      </div>
-
-      {!!result.length && (
-        <p>
-          <img src={result} alt="" />
-        </p>
-      )}
-    </div>
+    <PinturaEditor
+      {...editorDefaults}
+      src={image || undefined} 
+      className="editor"
+    />
   );
 };
 

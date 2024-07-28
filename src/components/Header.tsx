@@ -1,22 +1,18 @@
 // Header.tsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
-import { styled } from '@mui/system';
-
-const StyledAppBar = styled(AppBar)(({ }) => ({
-  backgroundColor: '#bf6464', // Header background color
-}));
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import '../components/Header.css';
 
 const Header: React.FC = () => {
   return (
-    <StyledAppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Visual Builder (VS Builder)
+    <AppBar position="static" className="header-appbar">
+      <Toolbar className="header-toolbar">
+        <Typography variant="h6" textAlign="center" component="div" className="header-title">
+          Visual Builder 
         </Typography>
         {/* Add any additional icons or elements here */}
       </Toolbar>
-    </StyledAppBar>
+    </AppBar>
   );
 };
 
