@@ -1,0 +1,45 @@
+/* EditPlayground.css */
+.edit-playground {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%; 
+  box-sizing: border-box;
+}
+
+.edit-appbar {
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.icon-button {
+  margin-right: 8px;
+}
+
+.editing-area {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffdd;
+  overflow: auto; 
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.editing-inner {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}

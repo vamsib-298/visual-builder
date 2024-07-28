@@ -1,0 +1,59 @@
+/* PhotoContent.css */
+.content {
+    max-height: 100%; 
+    overflow: auto; 
+    padding: 16px;
+    box-sizing: border-box; 
+  }
+  
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
+  .photo {
+    min-width: 250px; /* Adjust to your preferred minimum width */
+  max-width: 100%; 
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  /* PhotoDisplay styles incorporated into PhotoContent.css */
+  .feed {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .columnUl {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .li {
+    flex: 1 2 45%; 
+    margin: 10px;
+    max-width: 45%;
+  }
+  
+  .img {
+    min-width: 263px; /* Adjust to your preferred minimum width */
+    max-width: 100%;
+  }
+  
+  .credit {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    color: #555;
+    text-decoration: none;
+  }
+  
+  .credit:hover {
+    text-decoration: underline;
+    
+  }
+  

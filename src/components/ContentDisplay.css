@@ -1,0 +1,8 @@
+/* ContentDisplay.css */
+.content-display {
+    flex: 1; /* Take up the available space */
+    padding: 18px;
+    background-color: #eaeaea;
+    overflow: auto; /* Allow scrolling if content overflows */
+  }
+  

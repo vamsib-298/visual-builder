@@ -1,0 +1,45 @@
+/* App.css */
+.app-container {
+  display: fixed;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.sidebar-and-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* Prevent horizontal and vertical scrolling within this container */
+}
+
+.custom-sidebar {
+  width: 80px;
+  background-color: #d97b7b;
+  height: calc(100vh - 64px); 
+  overflow-y: auto;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.content-and-playground {
+  display: flex;
+  flex: 1;
+  overflow: hidden; 
+}
+
+.content-container {
+  width: 340px;
+  height: calc(100vh - 64px); 
+  background-color: #69c637ab;
+  overflow: auto; 
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.edit-playground {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ddd;
+  overflow: hidden; 
+}

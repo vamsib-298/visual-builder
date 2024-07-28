@@ -1,0 +1,60 @@
+/* CustomSidebar.css */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.custom-sidebar {
+width: 90px; /* Adjust the width of the sidebar */
+background-color: #bf6464; /* Background color of the sidebar */
+height: calc(100vh - 64px); /* Full viewport height minus header height */
+overflow-y: auto; /* Enable vertical scrolling */
+padding: 5px; 
+box-sizing: border-box; /* Ensure padding and border are included in width/height */
+position: relative;
+}
+
+/* Custom Scrollbar Styles for WebKit Browsers (Chrome, Safari) */
+.custom-sidebar::-webkit-scrollbar {
+width: 8px; 
+}
+
+.custom-sidebar::-webkit-scrollbar-thumb {
+background-color: #181d20;
+/* border-radius: 4px;  */
+}
+
+.custom-sidebar::-webkit-scrollbar-thumb:hover {
+background-color: #1976D2; 
+}
+
+.custom-sidebar::-webkit-scrollbar-track {
+background: #f1f1f1; /* Background color of the scrollbar track */
+}
+
+.sidebar-item {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+padding: 10px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+.sidebar-item:hover,
+.sidebar-item.selected {
+background-color: #8e7f7f3b; /* Background color on hover and when selected */
+}
+
+.sidebar-icon {
+color: #fff; /* Color for icons */
+font-size: 24px; /* Adjust icon size as needed */
+}
+
+.sidebar-text {
+color: #fff2f2; /* Color for text */
+font-size: 14px; /* Font size for the text */
+margin-top: 10px; /* Space between icon and text */
+}
