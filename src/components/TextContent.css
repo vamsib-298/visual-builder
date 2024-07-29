@@ -1,14 +1,28 @@
-/* TextContent.css */
-.text-content-container {
-    padding: 16px;
-  }
-  
-  .font-preview {
-    margin-top: 16px;
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #2f2f2f; /* Light dark color */
-    color: #fff; /* White text for contrast */
-  }
-  
+.container {
+  padding: 20px;
+}
+
+.inputField {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.generateButton {
+  margin-top: 10px !important;
+  width: 100%;
+}
+
+.generatedContentBox {
+  margin-top: 10px;
+  padding: 3px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #1a1919;
+  max-height: 350px;  
+  overflow-y: auto; 
+}
+
+.generatedText {
+  word-wrap: break-word; /* Ensure long words break to fit within the box */
+  white-space: pre-wrap; /* Preserve whitespace and handle line breaks */
+}

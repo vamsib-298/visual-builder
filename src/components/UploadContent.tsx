@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
 import './UploadContent.css';
 
-const UploadContent: React.FC = () => {
+interface UploadContentProps {
+  onImageSelect: (imageUrl: string) => void; 
+}
+
+const UploadContent: React.FC<UploadContentProps> = ({ onImageSelect }) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,7 +14,9 @@ const UploadContent: React.FC = () => {
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onloadend = () => {
-        setPreviewUrl(reader.result as string);
+        const url = reader.result as string;
+        setPreviewUrl(url);
+        onImageSelect(url); 
       };
       reader.readAsDataURL(file);
     }

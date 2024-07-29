@@ -1,61 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Typography, Select, MenuItem, FormControl, InputLabel, SelectChangeEvent } from '@mui/material';
-import WebFont from 'webfontloader';
+import React, { useState } from 'react';
+import { Box, Typography, TextField, Button } from '@mui/material';
+import './TextContent.css';
 
-interface Font {
-  family: string;
-  category: string;
+interface TextContentProps {
+  setGeneratedText: (text: string) => void;
 }
 
-const TextContent: React.FC = () => {
-  const [fonts, setFonts] = useState<Font[]>([]);
-  const [selectedFont, setSelectedFont] = useState<string>('Roboto'); // Default font
-  const [previewText, setPreviewText] = useState<string>('Hii Vamsi');
+const TextContent: React.FC<TextContentProps> = ({ setGeneratedText }) => {
+  const [inputText, setInputText] = useState<string>('');
+  const [generatedText, setGeneratedTextState] = useState<string>('');
 
-  useEffect(() => {
-    fetch('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyARqYXddgaKv73m2XDQ59t0JeACPBk_164')
-      .then(response => response.json())
-      .then(data => setFonts(data.items))
-      .catch(error => console.error('Error fetching fonts:', error));
-  }, []);
-
-  const handleFontChange = (event: SelectChangeEvent<string>) => {
-    const fontName = event.target.value as string;
-    setSelectedFont(fontName);
-
-    WebFont.load({
-      google: {
-        families: [fontName],
-      },
-    });
+  const handleGenerateText = () => {
+    const generatedText = `${inputText}`;
+    setGeneratedText(generatedText || 'No text generated');
+    setGeneratedTextState(generatedText || 'No text generated');
   };
 
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box className="container">
       <Typography variant="h6">Text Content</Typography>
-      <Typography variant="body1">This is where you can select and preview fonts.</Typography>
-      <FormControl fullWidth sx={{ marginTop: 2 }}>
-        <InputLabel>Select Font</InputLabel>
-        <Select value={selectedFont} onChange={handleFontChange}>
-          {fonts.map((font) => (
-            <MenuItem key={font.family} value={font.family}>
-              <Typography style={{ fontFamily: font.family }}>{font.family}</Typography>
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <Box
-        sx={{
-          marginTop: 2,
-          padding: 2,
-          border: '1px solid #ddd',
-          backgroundColor: '#f9f9f9',
-        }}
+      <TextField
+        label="Enter Text"
+        variant="outlined"
+        fullWidth
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+        className="inputField"
+      />
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleGenerateText}
+        className="generateButton"
       >
-        <Typography variant="h6" style={{ fontFamily: selectedFont }}>
-          {previewText}
-        </Typography>
-      </Box>
+        Generate by AI
+      </Button>
+      <br />
+      <br />
+      <h5>AI Response :</h5>
+      {generatedText && (
+        <Box className="generatedContentBox">
+          <Typography variant="body1" className="generatedText">{generatedText}</Typography>
+        </Box>
+      )}
     </Box>
   );
 };

@@ -30,7 +30,7 @@
 .content-container {
   width: 340px;
   height: calc(100vh - 64px); 
-  background-color: #258b8bbd;
+  background-color: #455d5df8;
   overflow: auto; 
   padding: 16px;
   box-sizing: border-box;

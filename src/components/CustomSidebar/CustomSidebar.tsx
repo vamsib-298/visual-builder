@@ -2,25 +2,13 @@ import React, { useState } from 'react';
 import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
-import WallpaperIcon from '@mui/icons-material/Wallpaper';
-import LayersIcon from '@mui/icons-material/Layers';
-import AppsIcon from '@mui/icons-material/Apps';
-import BrushIcon from '@mui/icons-material/Brush';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
-import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import './CustomSidebar.css';
 
 const sidebarItems = [
-  { icon: <AppsIcon className="sidebar-icon" />, text: 'Design' },
-  { icon: <BrushIcon className="sidebar-icon" />, text: 'Elements' },
   { icon: <TextFieldsIcon className="sidebar-icon" />, text: 'Text' },
-  { icon: <DesignServicesIcon className="sidebar-icon" />, text: 'Background' },
   { icon: <CloudUploadIcon className="sidebar-icon" />, text: 'Upload' },
   { icon: <PhotoLibraryIcon className="sidebar-icon" />, text: 'Photos' },
-  { icon: <WallpaperIcon className="sidebar-icon" />, text: 'Graphics' },
-  { icon: <LayersIcon className="sidebar-icon" />, text: 'Layers' },
-  { icon: <AppsIcon className="sidebar-icon" />, text: 'Design' },
-  { icon: <BrushIcon className="sidebar-icon" />, text: 'Elements' },
 
 ];
 
